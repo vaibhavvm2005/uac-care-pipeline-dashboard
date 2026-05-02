@@ -1,0 +1,183 @@
+/* UAC Care Pipeline Analytics — Custom Streamlit Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;600;700;800&display=swap');
+
+/* ── Root Overrides ───────────────────────────────────────────────────────── */
+:root {
+  --accent:    #3dd6ac;
+  --orange:    #f06a3b;
+  --blue:      #5b8ef5;
+  --yellow:    #e8c84b;
+  --red:       #f04f4f;
+  --muted:     #5a6278;
+  --surface:   #10141d;
+  --surface2:  #161b27;
+  --border:    rgba(255,255,255,0.07);
+  --text:      #e8eaf0;
+}
+
+/* ── Global Font ──────────────────────────────────────────────────────────── */
+html, body, [class*="css"] {
+  font-family: 'DM Mono', monospace !important;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+/* ── Hide Streamlit Branding ──────────────────────────────────────────────── */
+#MainMenu       { visibility: hidden; }
+footer          { visibility: hidden; }
+.stDeployButton { display: none; }
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+  background: #0d1019 !important;
+  border-right: 1px solid var(--border);
+}
+
+[data-testid="stSidebar"] .stMarkdown {
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── Metric Cards ─────────────────────────────────────────────────────────── */
+[data-testid="stMetric"] {
+  background:    var(--surface2);
+  border:        1px solid var(--border);
+  border-radius: 8px;
+  padding:       14px 16px 10px;
+  border-top:    2px solid var(--accent);
+  transition:    transform 0.2s, border-color 0.2s;
+}
+
+[data-testid="stMetric"]:hover {
+  transform:     translateY(-2px);
+  border-color:  rgba(61,214,172,0.3);
+}
+
+[data-testid="stMetricLabel"] {
+  font-size:      9px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+  color:          var(--muted) !important;
+}
+
+[data-testid="stMetricValue"] {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  font-size:   26px !important;
+  color:       var(--accent) !important;
+}
+
+[data-testid="stMetricDelta"] {
+  font-size: 10px !important;
+}
+
+/* ── Selectbox & Inputs ───────────────────────────────────────────────────── */
+[data-testid="stSelectbox"] > div > div {
+  background:    var(--surface2) !important;
+  border:        1px solid var(--border) !important;
+  border-radius: 6px !important;
+  font-family:   'DM Mono', monospace !important;
+  font-size:     11px !important;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.stDownloadButton > button,
+.stButton > button {
+  background:     transparent !important;
+  border:         1px solid var(--accent) !important;
+  color:          var(--accent) !important;
+  border-radius:  6px !important;
+  font-family:    'DM Mono', monospace !important;
+  font-size:      11px !important;
+  letter-spacing: 0.06em !important;
+  transition:     background 0.15s !important;
+}
+
+.stDownloadButton > button:hover,
+.stButton > button:hover {
+  background: rgba(61,214,172,0.1) !important;
+}
+
+/* ── DataFrames / Tables ──────────────────────────────────────────────────── */
+[data-testid="stDataFrame"] {
+  border:        1px solid var(--border) !important;
+  border-radius: 8px;
+  overflow:      hidden;
+}
+
+/* ── Plotly Charts ────────────────────────────────────────────────────────── */
+.js-plotly-plot .plotly {
+  border-radius: 8px;
+}
+
+/* ── Dividers ─────────────────────────────────────────────────────────────── */
+hr {
+  border-color: var(--border) !important;
+  margin: 8px 0 !important;
+}
+
+/* ── Expanders ────────────────────────────────────────────────────────────── */
+[data-testid="stExpander"] {
+  background:    var(--surface2) !important;
+  border:        1px solid var(--border) !important;
+  border-radius: 8px !important;
+}
+
+/* ── Info / Warning / Error Boxes ─────────────────────────────────────────── */
+.stAlert {
+  border-radius: 6px !important;
+  font-family:   'DM Mono', monospace !important;
+  font-size:     11px !important;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+[data-baseweb="tab-list"] {
+  background:    var(--surface2) !important;
+  border-radius: 8px !important;
+  padding:       4px !important;
+  gap:           4px;
+}
+
+[data-baseweb="tab"] {
+  font-family:    'DM Mono', monospace !important;
+  font-size:      10px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  border-radius:  5px !important;
+}
+
+/* ── Progress Bars ────────────────────────────────────────────────────────── */
+.stProgress > div > div {
+  background: var(--accent) !important;
+}
+
+/* ── Tooltips ─────────────────────────────────────────────────────────────── */
+[data-testid="stTooltipIcon"] {
+  color: var(--muted) !important;
+}
+
+/* ── KPI Insight Boxes (custom markdown) ──────────────────────────────────── */
+.insight-box {
+  background:    var(--surface2);
+  border:        1px solid var(--border);
+  border-left:   3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding:       14px 16px;
+  margin-bottom: 10px;
+}
+
+/* ── Section Headers ──────────────────────────────────────────────────────── */
+.section-header {
+  font-family:    'Syne', sans-serif;
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          var(--muted);
+  padding:        6px 0 6px;
+  border-bottom:  1px solid var(--border);
+  margin-bottom:  16px;
+}
